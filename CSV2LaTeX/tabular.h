@@ -11,14 +11,23 @@ using namespace std;
 class tabular
 {
 	private:
-		vector<vector<string>> raw_data;
+		vector<vector<string>> rawData;
+		vector<vector<string>> formData;
+		void buildFormData();
 	public:
+		enum style {
+			SIMPLISTIC,
+			FANCY
+		};
 		tabular();
 		~tabular();
+		//import data from csv
 		void importData();
+		//output data to a tex code snippit
 		void exportData();
+		//set a default style
 		void setStyle();
-		void setMaxRowSize();
+		//default styles
 };
 
 #endif

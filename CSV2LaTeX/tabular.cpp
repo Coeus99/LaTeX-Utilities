@@ -11,6 +11,28 @@ tabular::~tabular()
 
 }
 
+void tabular::buildFormData()
+{
+	//builds the formatted table (nothing to do with output)
+	tabular::formData.resize(tabular::rawData.size());
+	for (int i = 0; i < tabular::rawData.size(); i++)
+	{
+		tabular::formData.at(i).resize(tabular::rawData.at(i).size());
+		for (int j = 0; j < tabular::rawData.at(i).size(); j++)
+		{
+			//math mode
+			tabular::formData.at(i).at(j) += "$";
+			//data
+			tabular::formData.at(i).at(j) += rawData.at(i).at(j);
+			//add units
+			tabular::formData.at(i).at(j) += "\\,[u]";
+			//end math mode
+			tabular::formData.at(i).at(j) += "$";
+		}
+		//end of line
+	}
+}
+
 void tabular::importData()
 {
 	ifstream fin;
@@ -50,7 +72,7 @@ void tabular::importData()
 		//get rid of whitespace
 		trimString(row, 'b');
 		tempRow.push_back(row);
-		tabular::raw_data.push_back(tempRow);
+		tabular::rawData.push_back(tempRow);
 		tempRow.clear();
 	}
 
@@ -74,24 +96,22 @@ void tabular::exportData()
 		return;
 	}
 
-	for (int i = 0; i < tabular::raw_data.size(); i++)
+	buildTabular();
+
+	//should put this in function
+	for (int i = 0; i < tabular::formData.size(); i++)
 	{
-		for (int j = 0; j < tabular::raw_data.at(i).size(); j++)
+		for (int j = 0; j < tabular::formData.at(i).size(); j++)
 		{
-			fout << tabular::raw_data.at(i).at(j) << " ";
+			fout << tabular::formData.at(i).at(j) << "&";
 		}
-		fout << endl;
+		fout << "\\\\" << endl;
 	}
 
 	fout.close();
 }
 
 void tabular::setStyle()
-{
-
-}
-
-void tabular::setMaxRowSize()
 {
 
 }
