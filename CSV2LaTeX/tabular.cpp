@@ -50,11 +50,7 @@ void tabular::importData()
 		//get rid of whitespace
 		trimString(row, 'b');
 		tempRow.push_back(row);
-		for (int i = 0; i < tempRow.size(); i++)
-		{
-			cout << tempRow.at(i) << " ";
-		}
-		cout << endl;
+		tabular::raw_data.push_back(tempRow);
 		tempRow.clear();
 	}
 
@@ -63,7 +59,7 @@ void tabular::importData()
 
 void tabular::exportData()
 {
-	ifstream fout;
+	ofstream fout;
 	char filename[255];
 
 	cout << "Output to file: " << endl;
@@ -78,7 +74,14 @@ void tabular::exportData()
 		return;
 	}
 
-	//do output stuff here
+	for (int i = 0; i < tabular::raw_data.size(); i++)
+	{
+		for (int j = 0; j < tabular::raw_data.at(i).size(); j++)
+		{
+			fout << tabular::raw_data.at(i).at(j) << " ";
+		}
+		fout << endl;
+	}
 
 	fout.close();
 }

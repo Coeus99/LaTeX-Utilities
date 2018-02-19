@@ -11,8 +11,7 @@ using namespace std;
 class tabular
 {
 	private:
-		vector<vector<double>> raw_data;
-		int maxRowSize = 256;
+		vector<vector<string>> raw_data;
 	public:
 		tabular();
 		~tabular();
