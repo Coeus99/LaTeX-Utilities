@@ -140,8 +140,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CSV2LaTeX.cpp" />
+    <ClCompile Include="stringplus.cpp" />
+    <ClCompile Include="tabular.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="stringplus.h" />
     <ClInclude Include="tabular.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

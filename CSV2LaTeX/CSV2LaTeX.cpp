@@ -70,7 +70,7 @@ int main(int argc, char **argv)
 				table.exportData();
 				break;
 			case change_style:
-				table.changeStyle();
+				table.setStyle();
 				break;
 			default:
 				cout << "Invalid Choice." << endl << endl;

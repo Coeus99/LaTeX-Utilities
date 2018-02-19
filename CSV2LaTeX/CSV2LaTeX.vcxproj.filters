@@ -18,9 +18,18 @@
     <ClCompile Include="CSV2LaTeX.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="tabular.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stringplus.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="tabular.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stringplus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

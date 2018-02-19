@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 #include <fstream>
 
 using namespace std;
@@ -10,23 +11,15 @@ using namespace std;
 class tabular
 {
 	private:
-	vector<vector<double>> raw_data;
+		vector<vector<double>> raw_data;
+		int maxRowSize = 256;
 	public:
-	void importData()
-	{
-		cout << "Data imported" << endl;
-		return;
-	}
-	void exportData()
-	{
-		cout << "Data exported." << endl;
-		return;
-	}
-	void changeStyle()
-	{
-		cout << "Style changed." << endl;
-		return;
-	}
+		tabular();
+		~tabular();
+		void importData();
+		void exportData();
+		void setStyle();
+		void setMaxRowSize();
 };
 
 #endif
